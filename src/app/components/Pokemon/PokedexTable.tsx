@@ -15,8 +15,8 @@ const PokedexTable = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Id</TableCell>
-            <TableCell align="right">Name</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Id</TableCell>
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Sprite</TableCell>
           </TableRow>

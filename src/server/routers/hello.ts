@@ -5,14 +5,9 @@ import { router, procedure } from '../trpc';
 
 export const messageRouter = router({
   getHello: procedure
-    .input(
-      z.object({
-        text: z.string(),
-      }),
-    )
-    .query((opts) => {
+    .query(() => {
       return {
-        greeting: `hello ${opts.input.text}`,
+        greeting: `Welcome to Pokedex`,
       };
     }),
 });

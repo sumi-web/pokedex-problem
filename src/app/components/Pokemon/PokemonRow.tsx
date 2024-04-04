@@ -27,10 +27,8 @@ const PokemonRow = () => {
           key={poke.name}
           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
         >
-          <TableCell component="th" scope="row">
-            {poke.id}
-          </TableCell>
-          <TableCell align="right">{poke.name}</TableCell>
+          <TableCell scope="row">{poke.name}</TableCell>
+          <TableCell align="right">{poke.id}</TableCell>
           <TableCell align="right">{poke.type}</TableCell>
           <TableCell align="right">
             <Image

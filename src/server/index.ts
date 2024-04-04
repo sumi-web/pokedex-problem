@@ -1,6 +1,5 @@
-import { z } from "zod";
-import { mergeRouters } from "./trpc";
-import { messageRouter } from "./route/hello";
+import { mergeRouters } from './trpc';
+import { messageRouter } from './routers/hello';
 
 export const appRouter = mergeRouters(messageRouter);
 
