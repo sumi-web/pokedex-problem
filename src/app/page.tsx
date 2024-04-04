@@ -1,12 +1,5 @@
-import ClientComponent from '@/components/ClientComponent';
-import ServerComponent from '@/components/ServerComponent';
+import PokedexTable from './components/Pokemon/PokedexTable';
 
-export default function Home() {
-  return (
-    <main className="">
-      <h1 className="">Welcome to Magaaazine.</h1>
-      <ClientComponent />
-      {/* <ServerComponent /> */}
-    </main>
-  );
+export default async function Home() {
+  return <PokedexTable />;
 }
