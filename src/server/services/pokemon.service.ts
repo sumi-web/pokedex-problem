@@ -1,5 +1,19 @@
+import { prisma } from "../prisma";
+import { GetAllPokemonInputFilter } from "../routers/pokemon";
+
 class PokemonService {
-  public async getAllPokemons() {}
+  public async getAllPokemons(input:GetAllPokemonInputFilter) {
+    return prisma.pokemon.findMany({
+     where:{
+      name:{
+        contains:input.searchBy,
+        mode:"insensitive"
+      }
+     }
+    })
+  }
 }
 
-export default new PokemonService();
+const pokemonService =new PokemonService();
+
+export default pokemonService;
