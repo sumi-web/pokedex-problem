@@ -16,17 +16,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 interface Props {
   searchText: string;
-  handleShowLoader: (v: boolean) => void;
+  selectType: string;
 }
 
-const PokemonRow = ({ searchText, handleShowLoader }: Props) => {
+const PokemonRow = ({ searchText, selectType }: Props) => {
   const { isLoading, data } = trpc.getPokemon.useQuery({
     searchBy: searchText,
+    selectType,
   });
-
-  useEffect(() => {
-    handleShowLoader(isLoading);
-  }, [isLoading]);
 
   if (!data) {
     return null;

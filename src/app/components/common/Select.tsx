@@ -1,31 +1,44 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
-export default function BasicSelect() {
-  const [age, setAge] = React.useState('');
+interface Props {
+  selectedType: string;
+  list: string[];
+  handleSelectTypeChange: (v: string) => void;
+}
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
+export default function SelectBox({
+  list,
+  selectedType,
+  handleSelectTypeChange,
+}: Props) {
+  console.log('selectedType', selectedType);
 
   return (
-    <Box sx={{ minWidth:200 } }>
-      <FormControl fullWidth variant="standard">
-        <InputLabel id="demo-simple-select-label">Select type</InputLabel>
+    <Box sx={{ minWidth: 200 }}>
+      <FormControl fullWidth>
+        <InputLabel shrink id="demo-simple-select-label">
+          Select type
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
+          displayEmpty
+          value={selectedType}
+          label="Select type"
+          onChange={(e) => {
+            handleSelectTypeChange(e.target.value);
+          }}
         >
-          <MenuItem value={10}>--no filter--</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={''}>-all-</MenuItem>
+          {list.map((option, i) => (
+            <MenuItem key={option + i} value={option}>
+              {option}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

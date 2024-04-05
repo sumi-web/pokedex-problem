@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import PokemonRow from './PokemonRow';
-import ScreenLoader from '../common/ScreenLoader';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -24,20 +23,12 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 interface Props {
   searchText: string;
+  selectType: string;
 }
 
-const PokedexTable = ({ searchText }: Props) => {
-  const [showLoader, setShowLoader] = useState(false);
-
-  console.log('showLoader', showLoader);
-
-  const handleShowLoader = (value: boolean) => {
-    setShowLoader(value);
-  };
-
+const PokedexTable = ({ searchText, selectType }: Props) => {
   return (
     <>
-      {showLoader && <ScreenLoader />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -48,7 +39,7 @@ const PokedexTable = ({ searchText }: Props) => {
               <StyledTableCell align="right">Sprite</StyledTableCell>
             </TableRow>
           </TableHead>
-          <PokemonRow searchText={searchText} handleShowLoader={handleShowLoader} />
+          <PokemonRow searchText={searchText} selectType={selectType} />
         </Table>
       </TableContainer>
     </>
