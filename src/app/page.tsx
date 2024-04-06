@@ -2,7 +2,7 @@
 import { useCallback, useState } from 'react';
 import PokedexTable from './components/Pokemon/PokedexTable';
 import useDebounce from './hooks/useDebounce';
-import FilterablePokedexTable from './components/Pokemon/FilterablePokedextable';
+import FilterablePokedexTable from './components/Pokemon/FilterablePokedexTable';
 
 export default function Home() {
   const [searchText, setSearchText] = useState('');

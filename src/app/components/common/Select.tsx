@@ -5,12 +5,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 interface Props {
+  mediaUnder600: boolean;
   selectedType: string;
   list: string[];
   handleSelectTypeChange: (v: string) => void;
 }
 
 export default function SelectBox({
+  mediaUnder600,
   list,
   selectedType,
   handleSelectTypeChange,
@@ -18,7 +20,7 @@ export default function SelectBox({
   console.log('selectedType', selectedType);
 
   return (
-    <Box sx={{ minWidth: 200 }}>
+    <Box sx={{ minWidth: !mediaUnder600 ? '100%' : 200 }}>
       <FormControl fullWidth>
         <InputLabel shrink id="demo-simple-select-label">
           Select type

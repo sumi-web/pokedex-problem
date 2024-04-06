@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import SelectBox from '../common/Select';
 
 interface Props {
+  mediaUnder600: boolean;
   selectedType: string;
   handleSelectTypeChange: (v: string) => void;
 }
 
 const PokemonTypeSelection = ({
+  mediaUnder600,
   selectedType,
   handleSelectTypeChange,
 }: Props) => {
@@ -29,6 +31,7 @@ const PokemonTypeSelection = ({
 
   return (
     <SelectBox
+      mediaUnder600={mediaUnder600}
       list={pokemonTypeList}
       selectedType={selectedType}
       handleSelectTypeChange={handleSelectTypeChange}
