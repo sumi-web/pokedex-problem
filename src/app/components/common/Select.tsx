@@ -17,8 +17,6 @@ export default function SelectBox({
   selectedType,
   handleSelectTypeChange,
 }: Props) {
-  console.log('selectedType', selectedType);
-
   return (
     <Box sx={{ minWidth: !mediaUnder600 ? '100%' : 200 }}>
       <FormControl fullWidth>
